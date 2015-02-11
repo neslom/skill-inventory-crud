@@ -1,4 +1,5 @@
 require 'models/skill_inventory'
+
 class SkillInventoryApp < Sinatra::Base
   set :root, File.join(File.dirname(__FILE__), '..')
   enable :method_override
@@ -33,7 +34,11 @@ class SkillInventoryApp < Sinatra::Base
 
   put '/skills/:id' do |id|
     SkillInventory.update(id.to_i, params[:skill])
-    redirect "/skills/#{id}"
+    redirect "/skills"
   end
 
+  delete '/skills/:id' do |id|
+    SkillInventory.delete(id.to_i)
+    redirect "/skills"
+  end
 end

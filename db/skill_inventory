@@ -1,12 +1,9 @@
 ---
 skills:
 - id: 1
-  name: '654456'
-  status: '456456'
+  name: new
+  status: edited
 - id: 2
-  name: sdfasdf
-  status: asdfasdf
-- id: 3
-  name: nhgm
-  status: klhlhkh
-total: 3
+  name: newer
+  status: edited again
+total: 4

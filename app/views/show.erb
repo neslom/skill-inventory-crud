@@ -1,9 +1,15 @@
 <a href="/skills">Skill Index</a>
 
-<h1><%= @skill.name %> </h1>
+<h1><%= @skill.name %></h1>
 
-<p><%= @skill.status %> </p>
+<p><%= @skill.status %></p>
 
 <form action="/skills/<%= @skill.id %>/edit" method="get">
   <input type="submit" value="edit"/>
-</form> 
+</form>
+
+<form action="/skills/<%= @skill.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE"/>
+  <input type="submit" value="delete"/>
+</form>
+

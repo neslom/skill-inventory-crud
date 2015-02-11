@@ -6,4 +6,7 @@ skills:
 - id: 2
   name: newer
   status: edited again
-total: 4
+- id: 5
+  name: skillerz
+  status: for fresh haircutz
+total: 5

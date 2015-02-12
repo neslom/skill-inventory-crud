@@ -1,19 +1,12 @@
 require 'yaml/store'
-require_relative 'skill'
 
 class SkillInventory
   def self.database
-    @database ||= YAML::Store.new("db/skill_inventory")
-  end
-
-  def self.raw_skills
-    database.transaction do
-      database['skills'] || []
+    if ENV["TASK_MANAGER_ENV"] == 'test'
+      @database ||= YAML::Store.new("db/skill_inventory_test")
+    else
+      @database ||= YAML::Store.new("db/skill_inventory")
     end
-  end
-
-  def self.all
-    raw_skills.map {|data| Skill.new(data)}
   end
 
   def self.create(skill)
@@ -25,8 +18,8 @@ class SkillInventory
     end
   end
 
-  def self.raw_skill(id)
-    raw_skills.find {|skill| skill["id"] == id}
+  def self.all
+    raw_skills.map {|data| Skill.new(data)}
   end
 
   def self.find(id)
@@ -46,4 +39,23 @@ class SkillInventory
       database["skills"].delete_if { |skill| skill["id"] == id }
     end
   end
+
+  def self.delete_all
+    database.transaction do
+      database["skills"] = []
+      database["total"] = 0
+    end
+  end
+
+  def self.raw_skill(id)
+    raw_skills.find {|skill| skill["id"] == id}
+  end
+
+  def self.raw_skills
+    database.transaction do
+      database['skills'] || []
+    end
+  end
+
+  private_class_method :raw_skills, :raw_skill
 end

@@ -1,12 +1,15 @@
 ---
 skills:
-- id: 1
-  name: new
-  status: edited
 - id: 2
   name: newer
   status: edited again
 - id: 5
   name: skillerz
   status: for fresh haircutz
-total: 5
+- id: 6
+  name: rspec
+  status: yoooo
+- id: 7
+  name: rspec
+  status: yoooo
+total: 7

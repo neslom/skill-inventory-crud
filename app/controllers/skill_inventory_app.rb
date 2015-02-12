@@ -1,8 +1,4 @@
-require 'models/skill_inventory'
-
 class SkillInventoryApp < Sinatra::Base
-  set :root, File.join(File.dirname(__FILE__), '..')
-  enable :method_override
 
   get '/' do
     erb :dashboard

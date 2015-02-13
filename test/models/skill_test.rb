@@ -2,9 +2,9 @@ require_relative '../test_helper'
 
 class SkillTest < ModelTest
   def test_assigns_attributes_correctly
-    skill = Skill.new({ "name"       => "a name",
-                      "status" => "a status",
-                      "id" => 1
+    skill = Skill.new({ :name       => "a name",
+                      :status => "a status",
+                      :id => 1
                       })
     assert_equal "a name", skill.name
     assert_equal "a status", skill.status

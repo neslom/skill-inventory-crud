@@ -7,9 +7,8 @@ class SkillInventoryTest < ModelTest
 
   def test_can_create_a_skill
     SkillInventory.create({:name => "testee name", :status => "testee status"})
-    skill = SkillInventory.all.first
-    assert_equal "testee name", skill.name
-    assert_equal "testee status", skill.status
+    assert_equal "testee name", SkillInventory.all.first.name
+    assert_equal "testee status", SkillInventory.all.first.status
   end
 
   def test_returns_all_skill_instances
